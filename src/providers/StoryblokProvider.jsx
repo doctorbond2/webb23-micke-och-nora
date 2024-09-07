@@ -8,7 +8,7 @@ import Teaser from '@/components/nestable/Teaser';
 import RichTextDefault from '@/components/nestable/RichText';
 import ProductPage from '@/components/content-types/ProductPage';
 import ProductGrid from '@/components/nestable/ProductGrid';
-
+import Article from '@/components/nestable/Article';
 const components = {
   page: Page,
   ProductPage: ProductPage,
@@ -16,6 +16,8 @@ const components = {
   teaser: Teaser,
   richtext: RichTextDefault,
   product_list: ProductGrid,
+  article: Article,
+  product_page: ProductPage,
 };
 
 storyblokInit({
