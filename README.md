@@ -1,3 +1,8 @@
+# Dunderpatrullen
+# Micke och Nora och Oa!
+>>>>>>> a4e8fe6240a3f849b79df6dafa4235abb46605b7
+
+
 <<<<<<< HEAD
 This is a boilerplate for WEBB23 CMS Course. Next.js project with Storyblok CMS integration.
 
@@ -25,6 +30,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 =======
-# Dunderpatrullen
-# Micke och Nora
->>>>>>> a4e8fe6240a3f849b79df6dafa4235abb46605b7
+
