@@ -7,12 +7,15 @@ import Grid from '@/components/nestable/Grid';
 import Teaser from '@/components/nestable/Teaser';
 import RichTextDefault from '@/components/nestable/RichText';
 import ProductPage from '@/components/content-types/ProductPage';
+import ProductGrid from '@/components/nestable/ProductGrid';
+
 const components = {
   page: Page,
   ProductPage: ProductPage,
   grid: Grid,
   teaser: Teaser,
   richtext: RichTextDefault,
+  product_list: ProductGrid,
 };
 
 storyblokInit({
