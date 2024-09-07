@@ -16,7 +16,7 @@ export default function SizeList({ sizes }) {
       </h2>
       <ul className="flex">
         {allSizes.map((size) => (
-          <li key={size} className="p-0.1 m-1">
+          <li key={size} className="p-0.1 m-1 inline-block">
             {sizes.includes(size) ? (
               <h3 style={{ ...sizeBoxStyle }}>{size.toUpperCase()}</h3>
             ) : (

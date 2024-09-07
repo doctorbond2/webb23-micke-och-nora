@@ -1,10 +1,13 @@
 import { colourBoxStyle } from '@/utils/customStylings';
 export default function ColourList({ colours }) {
   return (
-    <>
-      {' '}
+    <div id="colour-list-container" className="">
       <h2
-        style={{ color: 'gray', fontWeight: 'bold', fontFamily: 'sans-serif' }}
+        style={{
+          color: 'gray',
+          fontWeight: 'bold',
+          fontFamily: 'sans-serif',
+        }}
       >
         Colour
       </h2>
@@ -20,6 +23,6 @@ export default function ColourList({ colours }) {
           ></li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
