@@ -1,8 +1,8 @@
-import Layout from "@/components/layout";
-import "./globals.css";
-import StoryblokProvider from "@/providers/StoryblokProvider";
-import { StoryblokCMS } from "@/utils/cms";
-import { storyblokInit, apiPlugin } from "@storyblok/react";
+import Layout from '@/components/layout';
+import './globals.css';
+import StoryblokProvider from '@/providers/StoryblokProvider';
+import { StoryblokCMS } from '@/utils/cms';
+import { storyblokInit, apiPlugin } from '@storyblok/react';
 
 storyblokInit({
   accessToken: StoryblokCMS.TOKEN,
@@ -14,7 +14,7 @@ export default async function RootLayout({ children }) {
   return (
     <StoryblokProvider>
       <html>
-        <body>
+        <body style={{ backgroundColor: '#f5f5f5' }}>
           <Layout config={currentConfig}>{children}</Layout>
         </body>
       </html>
