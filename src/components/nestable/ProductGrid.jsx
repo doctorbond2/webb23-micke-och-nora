@@ -1,33 +1,51 @@
+"use client";
 import { StoryblokCMS } from '@/utils/cms';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
-export default async function ProductGrid({ blok }) {
-  const products = await StoryblokCMS.getProducts();
-  const filteredProducts = products.filter((product) =>
+export default function ProductGrid({ blok }) {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const prod = await StoryblokCMS.getProducts();
+        setProducts(prod);
+        // console.log("prod", prod);
+      }
+      catch (e) {
+        console.log("e", e);
+      }
+    }
+    fetchProducts();
+  }, [blok]);
+
+  const filteredProducts = products?.filter((product) =>
     blok?.products.includes(product.uuid)
   );
+
   return (
     <section className="w-full bg-blue">
-      {/* <h1>{blok?.title}</h1>
-      <p>{blok?.desc}</p> */}
       <div>
-        {filteredProducts.map((product) => {
+        {filteredProducts?.map((product) => {
           const { slug } = product;
-          const { id, name, price, prod_image } = product.content;
+          const { name, price, image } = product.content;
+
           return (
-            <Link href={`/products/${slug}`} key={id}>
-              <div key={id}>
+            <Link href={`/products/${slug}`} key={product.id}>
+              <div key={product.id}>
                 <Image
-                  src={prod_image?.filename}
+                  src={image?.filename}
                   alt=""
                   width={200}
                   height={200}
                 />
-                <h2 className="text-white">{name}</h2>
-                <p className="text-white">{price}</p>
+                <h2 className="text-black">{name}</h2>
+                <p className="text-black">{price}</p>
               </div>
             </Link>
+
           );
         })}
       </div>
