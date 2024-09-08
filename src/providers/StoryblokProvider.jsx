@@ -2,6 +2,7 @@
 import { StoryblokCMS } from '@/utils/cms';
 import { storyblokInit, apiPlugin } from '@storyblok/react/rsc';
 
+import Hero from '@/components/nestable/Hero';
 import Page from '@/components/content-types/Page';
 import Grid from '@/components/nestable/Grid';
 import Teaser from '@/components/nestable/Teaser';
@@ -18,6 +19,7 @@ const components = {
   product_list: ProductGrid,
   article: Article,
   product_page: ProductPage,
+  hero: Hero,
 };
 
 storyblokInit({
