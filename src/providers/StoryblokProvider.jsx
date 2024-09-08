@@ -10,6 +10,8 @@ import RichTextDefault from '@/components/nestable/RichText';
 import ProductPage from '@/components/content-types/ProductPage';
 import ProductGrid from '@/components/nestable/ProductGrid';
 import Article from '@/components/nestable/Article';
+
+import LatestProducts from '@/components/client/LatestProducts';
 const components = {
   page: Page,
   ProductPage: ProductPage,
@@ -20,6 +22,7 @@ const components = {
   article: Article,
   product_page: ProductPage,
   hero: Hero,
+  latest_products: LatestProducts,
 };
 
 storyblokInit({
