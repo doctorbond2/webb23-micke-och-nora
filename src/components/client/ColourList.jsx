@@ -1,4 +1,5 @@
 import { colourBoxStyle } from '@/utils/customStylings';
+
 export default function ColourList({ colours }) {
   return (
     <div id="colour-list-container" className="">
