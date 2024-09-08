@@ -18,15 +18,31 @@ export default function RichTextDefault({ blok }) {
 
   const resolveNodeHeading = (children, props) => {
     const { level } = props;
-    return <h1 className="font-bold text-3xl  font-sans">{children}</h1>;
+
+    const headingClassNames = {
+      1: 'text-5xl font-bold mb-4 font-sans',
+      2: 'text-2xl font-semibold mb-3 font-sans',
+      3: 'text-xl font-medium mb-2 font-sans',
+      4: 'text-lg font-medium mb-2 font-sans',
+    };
+
+    return (
+      <h1
+        className={
+          headingClassNames[level] || 'text-lg font-medium mb-2 font-sans'
+        }
+      >
+        {children}
+      </h1>
+    );
   };
 
   const resolveNodeUL = (children) => {
-    return <ul className="list-disc ml-4">{children}</ul>;
+    return <ul className="list-disc ml-4 mb-4">{children}</ul>;
   };
 
   const resolveNodeOL = (children) => {
-    return <ol className="list-decimal ml-4">{children}</ol>;
+    return <ol className="list-decimal ml-4 mb-4">{children}</ol>;
   };
 
   const resolveNodeLI = (children) => {
@@ -35,11 +51,12 @@ export default function RichTextDefault({ blok }) {
 
   const resolveMarkLink = (children, props) => {
     const { linktype, href, target } = props;
-    const linkClassNames = 'font-bold underline';
+    const linkClassNames =
+      'font-bold underline text-blue-600 hover:text-blue-800';
     if (linktype === 'email') {
       // Email links: add `mailto:` scheme and map to <a>
       return (
-        <a className={`${linkClassNames}`} href={`mailto:${href}`}>
+        <a className={linkClassNames} href={`mailto:${href}`}>
           {children}
         </a>
       );
@@ -47,25 +64,35 @@ export default function RichTextDefault({ blok }) {
     if (href.match(/^(https?:)?\/\//)) {
       // External links -> a-tag
       return (
-        <a className={`${linkClassNames}`} href={href} target={'_blank'}>
+        <a className={linkClassNames} href={href} target={'_blank'}>
           {children}
         </a>
       );
     }
     // Internal links: map to <Link>
     return (
-      <Link className={`${linkClassNames}`} href={href}>
+      <Link className={linkClassNames} href={href}>
         {children}
       </Link>
     );
   };
 
   const resolveNodeParagraph = (children) => {
-    return <p>{children}</p>;
+    return <p className="mb-4">{children}</p>;
   };
 
   const resolveMarkCode = (children, props) => {
-    return '';
+    return (
+      <code className="bg-gray-200 p-1 rounded text-red-600">{children}</code>
+    );
+  };
+
+  const resolveNodeCodeBlock = (children, props) => {
+    return (
+      <pre className="bg-gray-900 text-white p-4 rounded-md overflow-x-auto">
+        {children}
+      </pre>
+    );
   };
 
   const resolvers = {
@@ -88,11 +115,15 @@ export default function RichTextDefault({ blok }) {
       ),
     },
     blokResolvers: {
-      //Connect other components here
+      // Connect other components here
     },
   };
 
   const renderedRichText = render(richtext, resolvers);
 
-  return <div {...rest}>{renderedRichText}</div>;
+  return (
+    <div className="prose prose-lg mx-auto" {...rest}>
+      {renderedRichText}
+    </div>
+  );
 }
