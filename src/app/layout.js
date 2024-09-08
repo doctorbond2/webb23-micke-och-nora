@@ -14,7 +14,7 @@ export default async function RootLayout({ children }) {
   return (
     <StoryblokProvider>
       <html>
-        <body style={{ backgroundColor: '#f5f5f5' }} className="pl-10 pr-10">
+        <body style={{ backgroundColor: '#f5f5f5' }}>
           <Layout config={currentConfig}>{children}</Layout>
         </body>
       </html>

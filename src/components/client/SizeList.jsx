@@ -8,15 +8,18 @@ export default function SizeList({ sizes }) {
     if (sizes) console.log('sizes', sizes);
   }, [sizes]);
   return (
-    <div id="sizes-list">
+    <div id="sizes-list" className="flex-col">
       <h2
         style={{ color: 'gray', fontWeight: 'bold', fontFamily: 'sans-serif' }}
       >
         Size
       </h2>
-      <ul className="flex">
+      <ul className="flex flex-wrap justify-start gap-2">
         {allSizes.map((size) => (
-          <li key={size} className="p-0.1 m-1 inline-block">
+          <li
+            key={size}
+            // className="w-[24%] sm:w-[24%] lg:w-auto m-1 border border-black text-center flex items-center justify-center aspect-square"
+          >
             {sizes.includes(size) ? (
               <h3 style={{ ...sizeBoxStyle }}>{size.toUpperCase()}</h3>
             ) : (

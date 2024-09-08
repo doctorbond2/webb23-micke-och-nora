@@ -20,6 +20,7 @@ export default function ColourList({ colours }) {
               ...colourBoxStyle,
               backgroundColor: colour,
             }}
+            className=" border border-black"
           ></li>
         ))}
       </ul>

@@ -3,9 +3,10 @@ export const sizeBoxStyle = {
   flexDirection: 'column',
   alignItems: 'center',
   padding: '1rem',
-  border: '1px solid black',
   minWidth: '3.8rem',
   maxWidth: '3.8rem',
+  maxWidth: '3.8rem',
+  minHeight: '3.8rem',
   fontWeight: 'bold',
   fontSize: '1rem',
   fontFamily: 'sans-serif',
@@ -20,6 +21,6 @@ export const colourBoxStyle = {
   minWidth: '3.5rem',
   maxHeight: '3.5rem',
   minHeight: '3.5rem',
-  border: '1px solid black',
+
   cursor: 'pointer',
 };
