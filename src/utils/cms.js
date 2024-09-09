@@ -1,8 +1,8 @@
-import { getStoryblokApi } from "@storyblok/react/rsc";
+import { getStoryblokApi } from '@storyblok/react/rsc';
 export class StoryblokCMS {
-  static IS_PROD = process.env.NODE_ENV === "production";
-  static IS_DEV = process.env.NODE_ENV === "development";
-  static VERSION = this.IS_PROD ? "published" : "draft";
+  static IS_PROD = process.env.NODE_ENV === 'production';
+  static IS_DEV = process.env.NODE_ENV === 'development';
+  static VERSION = this.IS_PROD ? 'published' : 'draft';
   static TOKEN = process.env.NEXT_PUBLIC_PREVIEW_STORYBLOK_TOKEN;
 
   static async sbGet(path, params) {
@@ -11,19 +11,16 @@ export class StoryblokCMS {
 
   static async getStory(params) {
     if (!params) return {};
-    const uri = params?.slug?.join("/");
-    const storyUrl = "cdn/stories/" + uri;
-    const { data } = await this.sbGet(
-      storyUrl,
-      this.getDefaultSBParams()
-    );
+    const uri = params?.slug?.join('/');
+    const storyUrl = 'cdn/stories/' + uri;
+    const { data } = await this.sbGet(storyUrl, this.getDefaultSBParams());
     return data.story;
   }
 
   static getDefaultSBParams() {
     return {
       version: this.VERSION,
-      resolve_links: "url",
+      resolve_links: 'url',
       cv: Date.now(),
     };
   }
@@ -31,12 +28,12 @@ export class StoryblokCMS {
   static async getConfig() {
     try {
       const { data } = await this.sbGet(
-        "cdn/stories/config",
+        'cdn/stories/config',
         this.getDefaultSBParams()
       );
       return data?.story;
     } catch (error) {
-      console.log("CONFIG ERROR", error);
+      console.log('CONFIG ERROR', error);
       return {};
     }
   }
@@ -48,11 +45,23 @@ export class StoryblokCMS {
     //2. Extract the metadata from the story
     //3. Return the metadata object
     return {
-      title: "Title",
-      description: "Description",
+      title: 'Title',
+      description: 'Description',
     };
   }
+  static async getProducts() {
+    try {
+      const { data } = await this.sbGet('cdn/stories/', {
+        starts_with: 'products/',
+        version: this.VERSION,
+      });
 
+      return data.stories;
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      return [];
+    }
+  }
   //Generates static paths from Links API endpoint
   static async getStaticPaths() {
     try {
@@ -60,26 +69,26 @@ export class StoryblokCMS {
         version: this.VERSION,
       };
 
-      let { data } = await this.sbGet("cdn/links/", sbParams);
+      let { data } = await this.sbGet('cdn/links/', sbParams);
       let paths = [];
 
       Object.keys(data.links).forEach((linkKey) => {
         const link = data.links[linkKey];
-        if (link.is_folder || link.slug === "home") {
+        if (link.is_folder || link.slug === 'home') {
           return;
         }
-        let slug = link.slug === "home" ? [] : link.slug;
+        let slug = link.slug === 'home' ? [] : link.slug;
 
-        if (slug != "") {
+        if (slug != '') {
           paths.push({
-            slug: slug.split("/"),
+            slug: slug.split('/'),
           });
         }
       });
 
       return paths;
     } catch (error) {
-      console.log("PATHS ERROR", error);
+      console.log('PATHS ERROR', error);
     }
   }
 }
