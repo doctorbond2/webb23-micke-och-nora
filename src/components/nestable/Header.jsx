@@ -15,18 +15,18 @@ export default function Header({ blok }) {
       <nav>
         <ul className="flex justify-between">
           {headerBlok?.nav?.map((item) => {
-            if (item.component === 'link') 
-              return  <Link href={`${item.link.cached_url}`} ><li key={item._uid}>{item.label}</li></Link>
+            if (item.component === 'link')
+              return <Link href={`${item.link.cached_url}`} ><li key={item._uid}>{item.label}</li></Link>
             else if (item.component === 'link_group') {
               return (
                 <li key={item._uid}>
                   <Link href={`/${item.products_link.cached_url}`}>
-                  <p>{item.label}</p> 
-                    </Link>
+                    <p>{item.label}</p>
+                  </Link>
                   <ul>
                     {item.links.map((subLink) => (
                       <Link key={subLink._uid} href={`/${subLink.link.cached_url}`}>
-                      <li>{subLink.label}</li>
+                        <li>{subLink.label}</li>
                       </Link>
                     ))}
                   </ul>
