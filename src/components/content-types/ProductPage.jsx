@@ -3,12 +3,11 @@ import Link from 'next/link';
 import SizeList from '../client/SizeList';
 import ColourList from '../client/ColourList';
 
-
 export default function ProductPage({ blok }) {
   const { name, price, image, colours, sizes, desc } = blok;
 
   return (
-    <main className="flex flex-col items-center p-4">
+    <main className="flex flex-col items-center p-4 h-[100vh]">
       <div id="product-container" className="flex flex-col md:flex-row gap-4">
         <div
           id="image-container"
@@ -16,11 +15,7 @@ export default function ProductPage({ blok }) {
         >
           <Image
             id={image.filename + ' image'}
-            src={
-              image.filename
-                ? image.filename
-                : '/no-image.png'
-            }
+            src={image.filename ? image.filename : '/no-image.png'}
             layout="responsive"
             alt={'image-' + name}
             width={300}
