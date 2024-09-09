@@ -1,25 +1,62 @@
+'use client';
 import { StoryblokCMS } from '@/utils/cms';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
-const getData = async () => {
-  try {
-    return await StoryblokCMS.getProducts();
-  } catch (err) {
-    console.error(err);
-  }
-};
 export default function LatestProducts({ latest_products }) {
-  const products = getData();
-  console.log('PRODUCTS!', latest_products);
-  //   const latestProducts = products.filter((product) =>
-  //     blok?.products.includes(product.uuid)
-  //   );
-  //   console.log('LATEST!', latestProducts);
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    getData();
+  }, [latest_products]);
+
+  const getData = async () => {
+    try {
+      const response = await StoryblokCMS.getProducts();
+      setProducts(response);
+    } catch (err) {
+      console.error(err);
+      return [];
+    }
+  };
+
+  const latestProducts = products.filter((product) =>
+    latest_products.includes(product.uuid)
+  );
+
   return (
     <>
-      {/* {latestProducts.map((product, index) => {
-        return <div key={index}>{index}</div>;
-      })} */}
-      null
+      <h1>Latest Products</h1>
+      <div className="flex flex-wrap justify-center gap-4">
+        {latestProducts.length > 0 ? (
+          latestProducts.map((product, index) => {
+            console.log('product', product);
+            const { content } = product;
+            const { image, name, price } = content;
+            const { filename, description } = image;
+            return (
+              <div
+                key={index}
+                className="w-[30%] md:w-[30%] lg:w-[30%] hover:-translate-y-2 transition-transform duration-300"
+              >
+                <div
+                  id="hero-image-wrapper"
+                  className="relative w-full border-slate-600  overflow-hidden h-[300px] lg:h-[700px]"
+                >
+                  <Image
+                    src={filename}
+                    alt={description}
+                    layout="fill"
+                    objectFit="contain"
+                    className="absolute inset-0"
+                  />
+                </div>
+              </div>
+            );
+          })
+        ) : (
+          <p>No products found.</p>
+        )}
+      </div>
     </>
   );
 }
