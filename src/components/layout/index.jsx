@@ -6,7 +6,7 @@ export default function Layout({ config, children }) {
   return (
     <>
       <Header blok={config.content.body} />
-      <main>{children}</main>
+      {children}
       <Footer config={config.content.body} />
     </>
   );
