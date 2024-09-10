@@ -9,7 +9,6 @@ export const sizeBoxStyle = {
   minHeight: '3.8rem',
   fontWeight: 'bold',
   fontSize: '1rem',
-  fontFamily: 'sans-serif',
   cursor: 'pointer',
 };
 export const colourBoxStyle = {
@@ -21,6 +20,5 @@ export const colourBoxStyle = {
   minWidth: '3.5rem',
   maxHeight: '3.5rem',
   minHeight: '3.5rem',
-
   cursor: 'pointer',
 };

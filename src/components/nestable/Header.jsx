@@ -23,9 +23,9 @@ export default function Header({ blok }) {
             else if (item.component === 'link_group') {
               return (
                 <li key={item._uid}>
-                  <Link href={`/${item.products_link.cached_url}`}>
-                    <p>{item.label}</p>
-                  </Link>
+                  {/* <Link href={`/${item.products_link.cached_url}`}> */}
+                  <p>{item.label}</p>
+                  {/* </Link> */}
                   <ul>
                     {item.links.map((subLink) => (
                       <Link
