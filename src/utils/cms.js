@@ -95,7 +95,7 @@ export class StoryblokCMS {
     try {
       const filterQuery = {
         component: { in: 'product_page' },
-        name: { like: searchTerm },
+        name: { like: `%${searchTerm}%` },
       };
       const secondFilterQuery = {
         component: { in: 'product_page' },

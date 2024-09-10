@@ -7,12 +7,12 @@ export default function Header({ blok }) {
   const headerBlok = blok?.find((blok) => blok.component === 'header');
 
   return (
-    <header className="border text-black bg-white p-4">
-      <nav className="flex flex-col md:flex-row justify-between items-center ">
-        <div className="flex items-center justify-between w-full md:w-auto mb-4 mb:mb-0">
+    <header className="border text-black bg-white pt-2 border-b-slate-800 ">
+      <nav className="flex flex-col md:flex-row items-center justify-between">
+        <div className="flex items-center justify-between lg:w-[40vw] w-auto mb-4 mb:mb-0 ml-5">
           <button>
             <Link href="/">
-              <h1 className=" font-bold text-[20px]">Ecommerce</h1>
+              <h1 className=" font-bold text-[1.3rem]">Ecommerce</h1>
             </Link>
           </button>
 
@@ -25,7 +25,7 @@ export default function Header({ blok }) {
                   className="border-b-2 border-transparent hover:border-black transition duration-300 ease-in-out"
                 >
                   <Link href={`${item.link.cached_url}`}>
-                    <h2 className="text-[20px]">{item.label}</h2>
+                    <h2 className="text-[1.3rem]">{item.label}</h2>
                   </Link>
                 </button>
               );
