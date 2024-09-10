@@ -7,33 +7,36 @@ export default function ProductPage({ blok }) {
   const { name, price, image, colours, sizes, desc } = blok;
 
   return (
-    <main className="flex flex-col items-center p-4 h-[100vh]">
+    <section
+      className="flex flex-col items-center p-4 h-[100vh]"
+      id="product-details"
+    >
+      <br></br>
       <div id="product-container" className="flex flex-col md:flex-row gap-4">
         <div
           id="image-container"
-          className="border border-black p-2  m-auto bg-slate-500 relative w-[400px] h-[400px]"
+          className="border bg-[#F6F6F6] p-2  m-auto relative w-[400px] h-[400px] lg:w-[600px] lg:h-[600px]"
         >
           <Image
             id={image.filename + ' image'}
             src={image.filename ? image.filename : '/no-image.png'}
-            layout="responsive"
-            alt={'image-' + name}
-            width={300}
-            height={300}
-            className="object-contain"
+            alt={image.description}
+            layout="fill"
+            objectFit="contain"
+            className="absolute inset-0"
           />
         </div>
-        <div id="info-container" className="flex flex-col p-4 m-10">
-          <h2 className="text-xl font-bold">{name}</h2>
+        <div id="info-container" className="flex flex-col lg:ml-8">
+          <h2 className="text-3xl font-bold">{name}</h2>
           <h3 className="text-lg text-gray-700">$ {price}</h3>
+          <p className="mt-4">{desc}</p>
           <ColourList colours={colours} />
           <SizeList sizes={sizes} />
-          <p className="mt-4">{desc}</p>
-          <Link href="/products" className="mt-4 text-blue-500">
-            Back to products
-          </Link>
         </div>
       </div>
-    </main>
+      <Link href="/products" className=" text-gray-500 mt-8">
+        <h2 className="text-xl">Browse more products</h2>
+      </Link>
+    </section>
   );
 }

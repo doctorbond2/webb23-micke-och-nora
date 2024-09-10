@@ -91,4 +91,23 @@ export class StoryblokCMS {
       console.log('PATHS ERROR', error);
     }
   }
+  static async searchForProducts(searchTerm) {
+    try {
+      const { data } = await this.sbGet('cdn/stories/', {
+        starts_with: 'products/',
+        version: this.VERSION,
+        filter_query: {
+          component: {
+            in: 'product',
+          },
+          name: {
+            like: searchTerm,
+          },
+        },
+      });
+      return data.stories;
+    } catch (error) {
+      console.error('Error searching for products:', error);
+    }
+  }
 }

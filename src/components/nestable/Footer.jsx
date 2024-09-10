@@ -12,7 +12,7 @@ export default function Footer({ config }) {
 
   return (
     <footer className="border lg:h-80 text-black bg-white">
-      <nav className="lg:flex justify-between mt-10">
+      <nav className="lg:flex justify-between mt-10 lg:px-36">
         <SignupNewsletter blok={footerSignUp} />
         {footerLinkGroups?.map((item) => (
           <LinkGroup key={item._uid} blok={item} />
