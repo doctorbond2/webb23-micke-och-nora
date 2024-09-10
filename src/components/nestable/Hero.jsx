@@ -8,12 +8,12 @@ export default function Hero({ blok }) {
   return (
     <section {...storyblokEditable(blok)}>
       <div
-        className="container mx-auto flex flex-col"
+        className="mx-auto flex flex-col"
         style={{
           backgroundColor: blok.background_color,
         }}
       >
-        <div className="text-center mt-8">
+        <div className="text-center mt-14">
           <RichTextDefault blok={blok} className="text-center mb-8" />
           <Link
             href={blok.button_url.cached_url}
