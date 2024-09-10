@@ -22,9 +22,17 @@ export default function ProductGrid({ blok }) {
     fetchProducts();
   }, [blok]);
 
-  const filteredProducts = products?.filter((product) =>
-    blok?.products.includes(product.uuid)
-  );
+  useEffect(() => {
+    console.log("activeFilter", activeFilter);
+  }, [activeFilter]);
+
+  const filteredProducts = products?.filter((product) => {
+    blok?.filter_options.includes(activeFilter);
+  });
+
+  // const filteredProducts = products?.filter((product) =>
+  //   blok?.products.includes(product.uuid)
+  // );
 
   return (
     <section className="w-full bg-gray-50 py-8">
