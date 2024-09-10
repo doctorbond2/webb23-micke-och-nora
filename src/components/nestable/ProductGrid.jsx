@@ -34,10 +34,11 @@ export default function ProductGrid({ blok }) {
             <Link key={option._uid} href={`/${option.link?.cached_url}`}>
               <button
                 onClick={() => setActiveFilter(option.label)}
-                className={`px-4 py-2 mb-4 ${activeFilter === option.label
-                  ? "bg-black text-white border-black"
-                  : "bg-white text-black border border-black"
-                  } hover:bg-black hover:text-white transition-colors duration-200`}
+                className={`px-4 py-2 mb-4 ${
+                  activeFilter === option.label
+                    ? "bg-black text-white border-black"
+                    : "bg-white text-black border border-black"
+                } hover:bg-black hover:text-white transition-colors duration-200`}
               >
                 {option.label}
               </button>
@@ -49,10 +50,21 @@ export default function ProductGrid({ blok }) {
       <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 sm:px-8 lg:px-16">
         {filteredProducts?.map((product) => {
           const { slug } = product;
-          const { name, price, image } = product.content;
+          const { name, price, image, category } = product.content;
+          // console.log("product", product.content);
+          // console.log("category", category);
+          // console.log("slug", slug);
+          // console.log(
+          //   "mame, price, image, category",
+          //   name,
+          //   price,
+          //   image,
+          //   category
+          // );
 
           return (
-            <Link href={`/products/${slug}`} key={product.id}>
+            <Link href={`/products/${category}/${slug}`} key={product.id}>
+              {console.log("category", category)}
               <div className="bg-white p-4 shadow hover:shadow-lg transition-shadow duration-200">
                 <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden">
                   <Image

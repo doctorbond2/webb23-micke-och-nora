@@ -1,8 +1,8 @@
-import { StoryblokComponent } from '@storyblok/react/rsc';
-import Link from 'next/link';
+import { StoryblokComponent } from "@storyblok/react/rsc";
+import Link from "next/link";
 
 export default function Header({ blok }) {
-  const headerBlok = blok?.find((blok) => blok.component === 'header');
+  const headerBlok = blok?.find((blok) => blok.component === "header");
 
   return (
     <header
@@ -14,18 +14,18 @@ export default function Header({ blok }) {
       <nav>
         <ul className="flex justify-between">
           {headerBlok?.nav?.map((item) => {
-            if (item.component === 'link')
+            if (item.component === "link")
               return (
                 <Link key={item._uid} href={`${item.link.cached_url}`}>
                   <li key={item._uid}>{item.label}</li>
                 </Link>
               );
-            else if (item.component === 'link_group') {
+            else if (item.component === "link_group") {
               return (
                 <li key={item._uid}>
-                  <Link href={`/${item.products_link.cached_url}`}>
-                    <p>{item.label}</p>
-                  </Link>
+                  {/* <Link href={`/${item.products_link.cached_url}`}> */}
+                  <p>{item.label}</p>
+                  {/* </Link> */}
                   <ul>
                     {item.links.map((subLink) => (
                       <Link
