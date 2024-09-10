@@ -1,6 +1,6 @@
-import { StoryblokComponent } from "@storyblok/react";
 import LinkGroup from "./LinkGroup";
 import SignupNewsletter from "./SignupNewsletter";
+
 export default function Footer({ config }) {
   const footerBlok = config?.find((blok) => blok.component === "footer");
   const footerLinkGroups = footerBlok?.body.filter(
@@ -12,16 +12,15 @@ export default function Footer({ config }) {
 
   return (
     <footer className="border lg:h-80 text-black bg-white">
-      <nav className="lg:flex justify-between mt-10">
-        <div className="min-w-[400px]">
+      <nav className="mt-10 lg:px-36 lg:flex lg:justify-between">
+        <div className="min-w-[400px] lg:w-auto">
           <SignupNewsletter blok={footerSignUp} />
         </div>
-        <div className="flex justify-center">
-          <div className="grid grid-cols-2 lg:flex lg:space-x-6 mt-6 lg:mt-0 w-[60%] ">
-            {footerLinkGroups?.map((item) => (
-              <LinkGroup key={item._uid} blok={item} />
-            ))}
-          </div>
+
+        <div className="grid grid-cols-2 gap-4 mt-6 lg:mt-0 lg:flex lg:space-x-6 lg:w-auto">
+          {footerLinkGroups?.map((item) => (
+            <LinkGroup key={item._uid} blok={item} />
+          ))}
         </div>
       </nav>
     </footer>
