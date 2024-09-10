@@ -93,18 +93,27 @@ export class StoryblokCMS {
   }
   static async searchForProducts(searchTerm) {
     try {
+      const filterQuery = {
+        component: { in: 'product_page' },
+        name: { like: searchTerm },
+      };
+      const secondFilterQuery = {
+        component: { in: 'product_page' },
+      };
       const { data } = await this.sbGet('cdn/stories/', {
-        starts_with: 'products/',
+        starts_with: `products/`,
         version: this.VERSION,
-        filter_query: {
-          component: {
-            in: 'product',
-          },
-          name: {
-            like: searchTerm,
-          },
-        },
+        filter_query: filterQuery,
       });
+      if (data.stories.length === 0) {
+        const searchTwo = await this.sbGet('cdn/stories/', {
+          starts_with: `products/${searchTerm}/`,
+          version: this.VERSION,
+          filter_query: secondFilterQuery,
+        });
+        return searchTwo.data.stories;
+      }
+
       return data.stories;
     } catch (error) {
       console.error('Error searching for products:', error);
