@@ -22,17 +22,9 @@ export default function ProductGrid({ blok }) {
     fetchProducts();
   }, [blok]);
 
-  useEffect(() => {
-    console.log("activeFilter", activeFilter);
-  }, [activeFilter]);
-
-  const filteredProducts = products?.filter((product) => {
-    blok?.filter_options.includes(activeFilter);
-  });
-
-  // const filteredProducts = products?.filter((product) =>
-  //   blok?.products.includes(product.uuid)
-  // );
+  const filteredProducts = products?.filter((product) =>
+    blok?.products.includes(product.uuid)
+  );
 
   return (
     <section className="w-full bg-gray-50 py-8">
@@ -57,22 +49,12 @@ export default function ProductGrid({ blok }) {
 
       <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 sm:px-8 lg:px-16">
         {filteredProducts?.map((product) => {
-          const { slug } = product;
-          const { name, price, image, category } = product.content;
-          // console.log("product", product.content);
-          // console.log("category", category);
-          // console.log("slug", slug);
-          // console.log(
-          //   "mame, price, image, category",
-          //   name,
-          //   price,
-          //   image,
-          //   category
-          // );
+          const { full_slug } = product;
+          const { name, price, image } = product.content;
 
           return (
-            <Link href={`/products/${category}/${slug}`} key={product.id}>
-              {console.log("category", category)}
+            <Link href={`/${full_slug}`} key={product.id}>
+              {/* {console.log("category", category)} */}
               <div className="bg-white p-4 shadow hover:shadow-lg transition-shadow duration-200">
                 <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden">
                   <Image
