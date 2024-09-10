@@ -4,10 +4,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import LatestProducts from '../client/LatestProducts';
 export default function Hero({ blok }) {
-  console.log(blok);
+  console.log('sxdf', blok.background_color);
   return (
     <section {...storyblokEditable(blok)}>
-      <div className="container mx-auto flex flex-col">
+      <div
+        className="container mx-auto flex flex-col"
+        style={{
+          backgroundColor: blok.background_color,
+        }}
+      >
         <div className="text-center mt-8">
           <RichTextDefault blok={blok} className="text-center mb-8" />
           <Link
@@ -19,7 +24,7 @@ export default function Hero({ blok }) {
         </div>
         <div
           id="hero-image-wrapper"
-          className="relative w-full lg:max-w-screen-xxl mx-auto border-slate-600 border-4 rounded-lg overflow-hidden h-[300px] lg:h-[800px] lg:w-full"
+          className=" relative w-full lg:max-w-screen-xxl mx-auto rounded-lg  overflow-hidden h-[300px] lg:h-[800px] lg:w-full"
         >
           {blok.image.filename && (
             <Image
@@ -30,8 +35,8 @@ export default function Hero({ blok }) {
               className="absolute inset-0"
             />
           )}
-          {blok.latest_products && (
-            <LatestProducts blok={blok.latest_products} />
+          {blok.latest_products.length >= 3 && (
+            <LatestProducts latest_products={blok.latest_products} />
           )}
         </div>
       </div>

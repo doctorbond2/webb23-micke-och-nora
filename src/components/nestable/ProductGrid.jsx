@@ -37,19 +37,19 @@ export default function ProductGrid({ blok }) {
   return (
     <section className="w-full bg-gray-50 py-8">
       <div className="flex justify-center space-x-4 mb-8 flex-wrap">
-        {blok?.filter_options?.map((option, index) => {
+        {blok?.filter_options?.map((option) => {
           return (
-            <button
-              key={index}
-              onClick={() => setActiveFilter(option.label)}
-              className={`px-4 py-2 mb-4 ${
-                activeFilter === option.label
+            <Link key={option._uid} href={`/${option.link?.cached_url}`}>
+              <button
+                onClick={() => setActiveFilter(option.label)}
+                className={`px-4 py-2 mb-4 ${activeFilter === option.label
                   ? "bg-black text-white border-black"
                   : "bg-white text-black border border-black"
-              } hover:bg-black hover:text-white transition-colors duration-200`}
-            >
-              {option.label}
-            </button>
+                  } hover:bg-black hover:text-white transition-colors duration-200`}
+              >
+                {option.label}
+              </button>
+            </Link>
           );
         })}
       </div>
