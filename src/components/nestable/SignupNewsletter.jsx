@@ -17,15 +17,17 @@ export default function SignupNewsletter({ blok }) {
       <div className="w-[60%]">
         <RichTextDefault blok={blok} />
       </div>
-      <form className="flex flex-col mt-8">
-        {/* Wrapper for input and button */}
-        <div className="lg:flex border-2 border-black w-[60%] lg:w-[80%] justify-between">
+      <form className="mt-8">
+        <div className="flex flex-col md:flex-row lg:border-2 lg:border-black w-[60%] lg:w-[80%] justify-between">
           <input
             type="email"
             placeholder={blok.input_label || 'Enter your email'}
-            className="pl-2 lg:border-none focus:outline-none focus:border-none lg:w-[70%] w-full"
+            className="pl-2 border-2 border-black p-3 md:p-0 lg:border-none focus:outline-none w-[50%] focus:border-none lg:w-[70%]"
           />
-          <button className=" text-black p-2 font-bold" onClick={onSignUp}>
+          <button
+            className=" text-black p-2 font-bold border-2 border-black rounded-md lg:m-0 mt-2 lg:border-none w-[50%] lg:w-[30%]"
+            onClick={onSignUp}
+          >
             Sign Up
           </button>
         </div>

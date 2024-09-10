@@ -17,9 +17,10 @@ export default function Hero({ blok }) {
           <RichTextDefault blok={blok} className="text-center mb-8" />
           <Link
             href={blok.button_url.cached_url}
-            className="inline-block px-12 lg:px-24 py-3 mt-4 border-2 border-black text-black bg-white hover:bg-gray-100 mb-5"
+            className="inline-block px-12 lg:px-24 py-3 mt-4 border-2 border-black text-black bg-white mb-5 
+                      hover:bg-black hover:text-white transition-colors duration-200"
           >
-            {blok.button_label}
+            <h3 className="font-bold">{blok.button_label}</h3>
           </Link>
         </div>
         <div
