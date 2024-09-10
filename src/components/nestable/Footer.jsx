@@ -16,10 +16,12 @@ export default function Footer({ config }) {
         <div className="min-w-[400px]">
           <SignupNewsletter blok={footerSignUp} />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:space-x-6 mt-6 lg:mt-0 lg:w-[60%]">
-          {footerLinkGroups?.map((item) => (
-            <LinkGroup key={item._uid} blok={item} />
-          ))}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:space-x-6 mt-6 lg:mt-0 w-[60%] ">
+            {footerLinkGroups?.map((item) => (
+              <LinkGroup key={item._uid} blok={item} />
+            ))}
+          </div>
         </div>
       </nav>
     </footer>
