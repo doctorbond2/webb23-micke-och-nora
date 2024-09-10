@@ -54,7 +54,6 @@ export default function ProductGrid({ blok }) {
 
           return (
             <Link href={`/${full_slug}`} key={product.id}>
-              {/* {console.log("category", category)} */}
               <div className="bg-white p-4 shadow hover:shadow-lg transition-shadow duration-200">
                 <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden">
                   <Image
