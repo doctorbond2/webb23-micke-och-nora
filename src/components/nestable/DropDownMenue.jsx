@@ -4,7 +4,7 @@ export default function DropDownMenue({ blok }) {
   return (
     <div key={blok._uid} className="relative inline-block text-left group">
       <button className="border-b-2 border-transparent group-hover:border-black transition duration-300 ease-in-out">
-        <h2 className="text-[20px] tracking-[-0.6px]">{blok.label}</h2>
+        <h2 className="text-[1.3rem] tracking-[-0.6px]">{blok.label}</h2>
       </button>
 
       <div className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
