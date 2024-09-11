@@ -5,10 +5,10 @@ export default function SignupNewsletter({ blok }) {
   console.log("asdasdasd", blok);
 
   return (
-    <div className="lg:ml-14 flex flex-col items-center">
-      <div className="w-30% flex flex-col items-left">
+    <div className=" flex flex-col items-center pl-5 pr-5 ">
+      <div className="w-30% flex flex-col items-left ">
         {/* RichTextDefault centreras nu korrekt */}
-        <div className="max-w-[400px] flex justify-center">
+        <div className="max-w-[400px] flex justify-center ">
           <RichTextDefault blok={blok} />
         </div>
         {/* Input och knapp, även dessa centrerade */}
@@ -17,7 +17,7 @@ export default function SignupNewsletter({ blok }) {
             <input
               type="email"
               placeholder={"     " + blok.input_label || "Enter your email"}
-              className="lg:border-none focus:outline-none focus:border-none lg:w-[70%] w-full p-2"
+              className="lg:border-none focus:outline-none focus:border-none lg:w-[70%] w-full p-2 max-w-[100%]"
             />
             <button className="text-black p-2 font-bold whitespace-nowrap">
               Sign Up
