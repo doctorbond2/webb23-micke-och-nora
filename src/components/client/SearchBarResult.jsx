@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { firstLetterUppercase as toUp } from '@/utils/general';
 export default function SearchBarResult({ result, clearSearch }) {
   const { content, full_slug } = result;
   const { name, image, price, category } = content;
@@ -18,7 +19,7 @@ export default function SearchBarResult({ result, clearSearch }) {
       onClick={handleNavigation}
       className="relative px-4 py-2 border-b last:border-none cursor-pointer hover:bg-gray-100 flex items-center justify-between"
     >
-      <h3 className="text-xs absolute top-2 left-2">{category}</h3>
+      <h3 className="text-xs absolute top-2 left-2">{toUp(category)}</h3>
 
       <div className="flex items-center space-x-4">
         <h2 className="text-sm">{name}</h2>
