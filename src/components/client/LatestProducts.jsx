@@ -25,7 +25,6 @@ export default function LatestProducts({ latest_products }) {
 
   return (
     <>
-      <h1>Latest Products</h1>
       <div className="flex flex-wrap justify-center gap-4">
         {latestProducts.length > 0 ? (
           latestProducts.map((product, index) => {
@@ -36,7 +35,9 @@ export default function LatestProducts({ latest_products }) {
             return (
               <div
                 key={index}
-                className="w-[30%] md:w-[30%] lg:w-[30%] hover:-translate-y-2 transition-transform duration-300"
+                className={`w-[30%] md:w-[30%] lg:w-[30%] ${
+                  index === 1 ? '-translate-y-10' : 'translate-y-10'
+                }`}
               >
                 <div
                   id="hero-image-wrapper"
@@ -44,7 +45,7 @@ export default function LatestProducts({ latest_products }) {
                 >
                   <Image
                     src={filename}
-                    alt={description}
+                    alt={description || `Image of ${name}`}
                     layout="fill"
                     objectFit="contain"
                     className="absolute inset-0"
