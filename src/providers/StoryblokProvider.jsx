@@ -14,6 +14,9 @@ import LatestProducts from '@/components/client/LatestProducts';
 import Header from '@/components/nestable/Header';
 import LinkGroup from '@/components/nestable/LinkGroup';
 import Footer from '@/components/nestable/Footer';
+import ImageBanner from '@/components/nestable/ImageBanner';
+import HeroLatest from '@/components/nestable/HeroLatest';
+
 const components = {
   page: Page,
   ProductPage: ProductPage,
@@ -27,6 +30,8 @@ const components = {
   latest_products: LatestProducts,
   header: Header,
   footer: Footer,
+  image_banner: ImageBanner,
+  hero_latest: HeroLatest
 };
 
 storyblokInit({
