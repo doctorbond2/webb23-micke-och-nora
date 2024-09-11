@@ -2,6 +2,7 @@
 import { StoryblokCMS } from '@/utils/cms';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { firstLetterUppercase as toUp } from '@/utils/general';
 
 export default function LatestProducts({ latest_products }) {
   const [products, setProducts] = useState([]);
@@ -25,24 +26,32 @@ export default function LatestProducts({ latest_products }) {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-col md:flex-row justify-center gap-4 overflow-auto md:overflow-hidden">
         {latestProducts.length > 0 ? (
           latestProducts.map((product, index) => {
-            console.log('product', product);
             const { content } = product;
-            const { image, name, price } = content;
+            const { image, name, price, category } = content;
             const { filename, description } = image;
             return (
               <div
                 key={index}
-                className={`w-[30%] md:w-[30%] lg:w-[30%] ${
-                  index === 1 ? '-translate-y-10' : 'translate-y-10'
+                className={`w-[60%] md:w-[30%] lg:w-[30%] ${
+                  index === 1 ? 'md:-translate-y-10' : 'md:translate-y-10'
                 }`}
               >
                 <div
                   id="hero-image-wrapper"
-                  className="relative w-full border-slate-600  overflow-hidden h-[300px] lg:h-[700px]"
+                  className="relative w-full border-slate-600 overflow-hidden h-[300px] lg:h-[700px]"
                 >
+                  <div className="absolute inset-0 flex flex-col justify-between p-4">
+                    <h3
+                      className={`text-lg font-semibold z-20 ${
+                        index === 1 ? 'lg:translate-y-10' : ''
+                      }`}
+                    >
+                      {toUp(name)}
+                    </h3>
+                  </div>
                   <Image
                     src={filename}
                     alt={description || `Image of ${name}`}
