@@ -1,10 +1,10 @@
-import { StoryblokComponent } from '@storyblok/react/rsc';
-import Link from 'next/link';
-import DropDownMenue from './DropDownMenue';
-import SearchBar from '../client/SearchBar';
+import { StoryblokComponent } from "@storyblok/react/rsc";
+import Link from "next/link";
+import DropDownMenue from "./DropDownMenue";
+import SearchBar from "../client/SearchBar";
 
 export default function Header({ blok }) {
-  const headerBlok = blok?.find((blok) => blok.component === 'header');
+  const headerBlok = blok?.find((blok) => blok.component === "header");
 
   return (
     <header className="border text-black bg-white pt-2 border-b-slate-800 ">
@@ -17,7 +17,7 @@ export default function Header({ blok }) {
           </button>
 
           {headerBlok?.nav?.map((item) => {
-            if (item.component === 'link') {
+            if (item.component === "link") {
               console.log(item.link.cached_url);
               return (
                 <button
@@ -29,7 +29,7 @@ export default function Header({ blok }) {
                   </Link>
                 </button>
               );
-            } else if (item.component === 'link_group')
+            } else if (item.component === "link_group")
               return <DropDownMenue key={item._uid} blok={item} />;
             else return null;
           })}
