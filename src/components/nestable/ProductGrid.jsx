@@ -1,14 +1,12 @@
-"use client";
-import { StoryblokCMS } from "@/utils/cms";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+'use client';
+import { StoryblokCMS } from '@/utils/cms';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function ProductGrid({ blok }) {
   const [products, setProducts] = useState([]);
   const [activeFilter, setActiveFilter] = useState(null);
-
-  console.log("blok", blok);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -16,7 +14,7 @@ export default function ProductGrid({ blok }) {
         const prod = await StoryblokCMS.getProducts();
         setProducts(prod);
       } catch (e) {
-        console.log("e", e);
+        console.log('e', e);
       }
     };
     fetchProducts();
@@ -36,8 +34,8 @@ export default function ProductGrid({ blok }) {
                 onClick={() => setActiveFilter(option.label)}
                 className={`px-4 py-2 mb-4 ${
                   activeFilter === option.label
-                    ? "bg-black text-white border-black"
-                    : "bg-white text-black border border-black"
+                    ? 'bg-black text-white border-black'
+                    : 'bg-white text-black border border-black'
                 } hover:bg-black hover:text-white transition-colors duration-200`}
               >
                 {option.label}

@@ -49,7 +49,7 @@ export class StoryblokCMS {
       description: 'Description',
     };
   }
-  
+
   static async getProducts() {
     console.log(this.VERSION);
     try {
@@ -106,14 +106,14 @@ export class StoryblokCMS {
         version: this.VERSION,
         filter_query: filterQuery,
       });
-      console.log(data.stories);
+
       if (data.stories.length === 0) {
         const searchTwo = await this.sbGet('cdn/stories/', {
           starts_with: `products/${searchTerm}/`,
           version: this.VERSION,
           filter_query: secondFilterQuery,
         });
-        console.log(searchTwo.data.stories);
+
         return searchTwo.data.stories;
       }
 
