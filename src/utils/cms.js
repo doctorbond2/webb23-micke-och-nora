@@ -13,10 +13,7 @@ export class StoryblokCMS {
     if (!params) return {};
     const uri = params?.slug?.join("/");
     const storyUrl = "cdn/stories/" + uri;
-    const { data } = await this.sbGet(
-      storyUrl,
-      this.getDefaultSBParams()
-    );
+    const { data } = await this.sbGet(storyUrl, this.getDefaultSBParams());
     return data.story;
   }
 
@@ -48,11 +45,24 @@ export class StoryblokCMS {
     //2. Extract the metadata from the story
     //3. Return the metadata object
     return {
-      title: "Title",
+      title: "Fina kläder på nätet",
       description: "Description",
     };
   }
 
+  static async getProducts() {
+    console.log(this.VERSION);
+    try {
+      const { data } = await this.sbGet("cdn/stories/", {
+        starts_with: "products/",
+        version: this.VERSION,
+      });
+      return data.stories;
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      return [];
+    }
+  }
   //Generates static paths from Links API endpoint
   static async getStaticPaths() {
     try {
@@ -80,6 +90,36 @@ export class StoryblokCMS {
       return paths;
     } catch (error) {
       console.log("PATHS ERROR", error);
+    }
+  }
+  static async searchForProducts(searchTerm) {
+    try {
+      const filterQuery = {
+        component: { in: "product_page" },
+        name: { like: `%${searchTerm}%` },
+      };
+      const secondFilterQuery = {
+        component: { in: "product_page" },
+      };
+      const { data } = await this.sbGet("cdn/stories/", {
+        starts_with: `products/`,
+        version: this.VERSION,
+        filter_query: filterQuery,
+      });
+
+      if (data.stories.length === 0) {
+        const searchTwo = await this.sbGet("cdn/stories/", {
+          starts_with: `products/${searchTerm}/`,
+          version: this.VERSION,
+          filter_query: secondFilterQuery,
+        });
+
+        return searchTwo.data.stories;
+      }
+
+      return data.stories;
+    } catch (error) {
+      console.error("Error searching for products:", error);
     }
   }
 }

@@ -1,3 +1,4 @@
+
 export default function Robots() {
     return {
         rules: {
@@ -5,6 +6,6 @@ export default function Robots() {
           allow: '/',
           disallow: '/private/',
         },
-        sitemap: '',
+        sitemap: `${process.env.SITE_URL}/sitemap.js`,
       }
 }
