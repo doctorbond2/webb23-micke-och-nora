@@ -7,7 +7,10 @@ export default function ProductPage({ blok }) {
   const { name, price, image, colours, sizes, desc } = blok;
 
   return (
-    <section className="flex flex-col items-center p-4 " id="product-details">
+    <section
+      className="flex flex-col items-center p-4 md:h-[100vh] md:pt-20"
+      id="product-details"
+    >
       <br></br>
       <div
         id="product-container"
