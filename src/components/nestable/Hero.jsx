@@ -2,9 +2,9 @@ import { storyblokEditable } from '@storyblok/react';
 import RichTextDefault from './RichText';
 import Image from 'next/image';
 import Link from 'next/link';
-import LatestProducts from '../client/LatestProducts';
+
 export default function Hero({ blok }) {
-  console.log('sxdf', blok.background_color);
+
   return (
     <section {...storyblokEditable(blok)}>
       <div
@@ -36,9 +36,6 @@ export default function Hero({ blok }) {
               className="absolute inset-0"
             />
           )}
-          {/* {blok.latest_products.length >= 3 && (
-            <LatestProducts latest_products={blok.latest_products} />
-          )} */}
         </div>
       </div>
     </section>
