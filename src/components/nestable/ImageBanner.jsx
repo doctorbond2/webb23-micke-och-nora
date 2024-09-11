@@ -5,10 +5,12 @@ export default function ImageBanner({ blok }) {
 
     return (
         <div>
-            <Image
+            {filename ? <Image
                 src={filename}
                 layout="fill"
-                objectFit="contain" />
+                objectFit="contain"
+                className='Absolute' />
+                : "Couldn't find image"}
         </div>
     )
 }
