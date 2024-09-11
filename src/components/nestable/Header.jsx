@@ -39,7 +39,7 @@ export default function Header({ blok }) {
         </div>
 
         <div className="flex items-center flex-shrink-0">
-          <h2 className="text-[1.32rem]">3</h2>
+          <h2 className="text-[1.32rem]  ">3</h2>
         </div>
       </nav>
     </header>

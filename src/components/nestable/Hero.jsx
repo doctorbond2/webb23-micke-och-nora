@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Hero({ blok }) {
-
   return (
     <section {...storyblokEditable(blok)}>
       <div
@@ -30,7 +29,7 @@ export default function Hero({ blok }) {
           {blok.image.filename && (
             <Image
               src={blok.image.filename}
-              alt={blok.image.description}
+              alt={blok.image.description || 'Hero Image'}
               layout="fill"
               objectFit="contain"
               className="absolute inset-0"

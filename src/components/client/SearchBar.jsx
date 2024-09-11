@@ -1,17 +1,17 @@
-"use client";
-import { StoryblokCMS as CMS } from "@/utils/cms";
-import { debounce } from "@/utils/general";
-import { useReducer } from "react";
+'use client';
+import { StoryblokCMS as CMS } from '@/utils/cms';
+import { debounce } from '@/utils/general';
+import { useReducer } from 'react';
 import {
   searchReducer,
   searchReducerActionTypes as action,
-} from "@/utils/reducer";
-
-import SearchBarResult from "./SearchBarResult";
+} from '@/utils/reducer';
+import Image from 'next/image';
+import SearchBarResult from './SearchBarResult';
 
 export default function SearchBar() {
   const [state, dispatch] = useReducer(searchReducer, {
-    searchInput: "",
+    searchInput: '',
     searchResults: [],
     isLoading: false,
     isFetching: false,

@@ -3,7 +3,9 @@ export class StoryblokCMS {
   static IS_PROD = process.env.NODE_ENV === "production";
   static IS_DEV = process.env.NODE_ENV === "development";
   static VERSION = this.IS_PROD ? "published" : "draft";
-  static TOKEN = process.env.NEXT_PUBLIC_PREVIEW_STORYBLOK_TOKEN;
+  static TOKEN = this.IS_PROD
+    ? process.env.NEXT_PUBLIC_PUBLIC_STORYBLOK_TOKEN
+    : process.env.NEXT_PUBLIC_PREVIEW_STORYBLOK_TOKEN;
 
   static async sbGet(path, params) {
     return getStoryblokApi().get(path, params);
@@ -63,7 +65,6 @@ export class StoryblokCMS {
       return [];
     }
   }
-  //Generates static paths from Links API endpoint
   static async getStaticPaths() {
     try {
       let sbParams = {
@@ -109,7 +110,7 @@ export class StoryblokCMS {
 
       if (data.stories.length === 0) {
         const searchTwo = await this.sbGet("cdn/stories/", {
-          starts_with: `products/${searchTerm}/`,
+          starts_with: `products/%${searchTerm}%/`,
           version: this.VERSION,
           filter_query: secondFilterQuery,
         });
