@@ -36,9 +36,9 @@ export default function Hero({ blok }) {
               className="absolute inset-0"
             />
           )}
-          {blok.latest_products.length >= 3 && (
+          {/* {blok.latest_products.length >= 3 && (
             <LatestProducts latest_products={blok.latest_products} />
-          )}
+          )} */}
         </div>
       </div>
     </section>
