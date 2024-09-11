@@ -7,10 +7,9 @@ export default function SignupNewsletter({ blok }) {
   return (
     <div className=" flex flex-col items-center pl-5 pr-5 ">
       <div className="w-30% flex flex-col items-left ">
-        <div className="max-w-[400px] flex ">
+        <div className="max-w-[400px] flex justify-center ">
           <RichTextDefault blok={blok} />
         </div>
-
         <form className=" flex mt-4">
           <div className="flex border-2 border-black">
             <input

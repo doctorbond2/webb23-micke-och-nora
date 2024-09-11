@@ -1,13 +1,13 @@
-import LinkGroup from "./LinkGroup";
-import SignupNewsletter from "./SignupNewsletter";
+import LinkGroup from './LinkGroup';
+import SignupNewsletter from './SignupNewsletter';
 
 export default function Footer({ config }) {
-  const footerBlok = config?.find((blok) => blok.component === "footer");
+  const footerBlok = config?.find((blok) => blok.component === 'footer');
   const footerLinkGroups = footerBlok?.body.filter(
-    (item) => item.component === "link_group"
+    (item) => item.component === 'link_group'
   );
   const footerSignUp = footerBlok?.body.find(
-    (item) => item.component === "signup_newsletter"
+    (item) => item.component === 'signup_newsletter'
   );
 
   return (

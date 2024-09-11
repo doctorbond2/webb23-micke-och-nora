@@ -29,7 +29,7 @@ export default function ProductPage({ blok }) {
         <div id="info-container" className="flex flex-col lg:ml-8">
           <h2 className="text-3xl font-bold">{name}</h2>
           <h3 className="text-lg text-gray-700">$ {price}</h3>
-          <p className="mt-4">{desc}</p>
+          <p className="mt-4 max-w-[20rem]">{desc}</p>
           <ColourList colours={colours} />
           <SizeList sizes={sizes} />
         </div>

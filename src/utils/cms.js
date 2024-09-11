@@ -65,7 +65,6 @@ export class StoryblokCMS {
       return [];
     }
   }
-  //Generates static paths from Links API endpoint
   static async getStaticPaths() {
     try {
       let sbParams = {
@@ -111,7 +110,7 @@ export class StoryblokCMS {
 
       if (data.stories.length === 0) {
         const searchTwo = await this.sbGet("cdn/stories/", {
-          starts_with: `products/${searchTerm}/`,
+          starts_with: `products/%${searchTerm}%/`,
           version: this.VERSION,
           filter_query: secondFilterQuery,
         });
