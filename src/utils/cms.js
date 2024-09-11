@@ -49,6 +49,7 @@ export class StoryblokCMS {
       description: 'Description',
     };
   }
+  
   static async getProducts() {
     console.log(this.VERSION);
     try {
