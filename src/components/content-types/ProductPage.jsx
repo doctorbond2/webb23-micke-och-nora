@@ -7,15 +7,15 @@ export default function ProductPage({ blok }) {
   const { name, price, image, colours, sizes, desc } = blok;
 
   return (
-    <section
-      className="flex flex-col items-center p-4 h-[100vh]"
-      id="product-details"
-    >
+    <section className="flex flex-col items-center p-4 " id="product-details">
       <br></br>
-      <div id="product-container" className="flex flex-col md:flex-row gap-4">
+      <div
+        id="product-container"
+        className="flex flex-col md:flex-row gap-4 md:w-[60%] w-[90%]"
+      >
         <div
           id="image-container"
-          className="border bg-[#F6F6F6] p-2  m-auto relative w-[400px] h-[400px] lg:w-[600px] lg:h-[600px]"
+          className="border bg-[#F6F6F6] p-2 m-auto relative w-[200px] h-[200px] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px]"
         >
           <Image
             id={image.filename + ' image'}
@@ -29,7 +29,7 @@ export default function ProductPage({ blok }) {
         <div id="info-container" className="flex flex-col lg:ml-8">
           <h2 className="text-3xl font-bold">{name}</h2>
           <h3 className="text-lg text-gray-700">$ {price}</h3>
-          <p className="mt-4">{desc}</p>
+          <p className="mt-4 max-w-[20rem]">{desc}</p>
           <ColourList colours={colours} />
           <SizeList sizes={sizes} />
         </div>
