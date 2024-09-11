@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Hero({ blok }) {
+  console.log('Hero', blok);
   return (
     <section {...storyblokEditable(blok)}>
       <div
