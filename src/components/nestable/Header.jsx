@@ -24,7 +24,7 @@ export default function Header({ blok }) {
                   key={item._uid}
                   className="border-b-2 border-transparent hover:border-black transition duration-300 ease-in-out"
                 >
-                  <Link href={`${item.link.cached_url}`}>
+                  <Link href={`/${item.link.cached_url}`}>
                     <h2 className="text-[1.3rem]">{item.label}</h2>
                   </Link>
                 </button>
