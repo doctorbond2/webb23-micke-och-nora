@@ -11,16 +11,17 @@ export default function Footer({ config }) {
   );
 
   return (
-    <footer className="border lg:h-80 text-black bg-white">
-      <nav className="mt-10 lg:px-36 lg:flex lg:justify-between">
-        <div className="min-w-[400px] lg:w-auto">
+    <footer className="border lg:h-[443px] text-black bg-white overflow-auto ">
+      <nav className="mt-10 lg:px-36 lg:flex lg:justify-between ">
+        <div className="lg:min-w-[400px]  lg:w-auto  ">
           <SignupNewsletter blok={footerSignUp} />
         </div>
-
-        <div className="grid grid-cols-2 gap-4 mt-6 lg:mt-0 lg:flex lg:space-x-6 lg:w-auto">
-          {footerLinkGroups?.map((item) => (
-            <LinkGroup key={item._uid} blok={item} />
-          ))}
+        <div className="w-[100%] flex justify-center">
+          <div className="grid grid-cols-2 gap-4 mt-6 lg:mt-0 lg:flex lg:space-x-6 lg:w-auto md:w-[50%]">
+            {footerLinkGroups?.map((item) => (
+              <LinkGroup key={item._uid} blok={item} />
+            ))}
+          </div>
         </div>
       </nav>
     </footer>
