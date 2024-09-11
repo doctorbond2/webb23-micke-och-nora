@@ -4,7 +4,7 @@ import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 storyblokInit({
     accessToken: process.env.NEXT_PUBLIC_PRODUCTION_STORYBLOK_TOKEN,
     use: [apiPlugin],
-  });
+});
 
 export default async function sitemap() {
     try {
@@ -15,7 +15,7 @@ export default async function sitemap() {
         const sitemap = pages.map((page) => {
             const slug = page?.slug.filter((item) => item !== "")
             let finalSlug = slug?.length > 0 ? slug.join("/") : slug
-            const url = `localhost:3000/${finalSlug ?? ""}`
+            const url = `${process.env.SITE_URL}/${finalSlug ?? ""}`
             return {
                 url: url,
                 lastModiefied: new Date(),
@@ -24,7 +24,6 @@ export default async function sitemap() {
         })
 
         return sitemap;
-
 
     } catch (error) {
         return []
