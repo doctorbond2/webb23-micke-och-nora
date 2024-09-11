@@ -12,7 +12,7 @@ export default function Footer({ config }) {
 
   return (
     <footer className="border lg:h-[443px] text-black bg-white overflow-auto pb-[10%] lg:pb-0">
-      <nav className="mt-10 lg:px-36 lg:flex lg:justify-between ">
+      <nav className="mt-10 px-0 lg:px-36 lg:flex lg:justify-between ">
         <div className="lg:min-w-[400px]  lg:w-auto  ">
           <SignupNewsletter blok={footerSignUp} />
         </div>

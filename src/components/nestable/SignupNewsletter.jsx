@@ -7,11 +7,10 @@ export default function SignupNewsletter({ blok }) {
   return (
     <div className=" flex flex-col items-center pl-5 pr-5 ">
       <div className="w-30% flex flex-col items-left ">
-        {/* RichTextDefault centreras nu korrekt */}
-        <div className="max-w-[400px] flex justify-center ">
+        <div className="max-w-[400px] flex ">
           <RichTextDefault blok={blok} />
         </div>
-        {/* Input och knapp, även dessa centrerade */}
+
         <form className=" flex mt-4">
           <div className="flex border-2 border-black">
             <input

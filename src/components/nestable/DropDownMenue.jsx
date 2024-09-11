@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function DropDownMenue({ blok }) {
   return (
-    <div key={blok._uid} className="flex items-center  ">
+    <div key={blok._uid} className="flex items-center group">
       <button className="border-b-2 border-transparent group-hover:border-black transition duration-300 ease-in-out">
         <span className="text-[1.2rem] tracking-[-0.6px]">{blok.label}</span>
       </button>
