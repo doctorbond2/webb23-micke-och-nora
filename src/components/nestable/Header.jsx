@@ -1,4 +1,3 @@
-import { StoryblokComponent } from '@storyblok/react/rsc';
 import Link from 'next/link';
 import DropDownMenue from './DropDownMenue';
 import SearchBar from '../client/SearchBar';
@@ -20,7 +19,7 @@ export default function Header({ blok }) {
             </button>
 
             {headerBlok?.nav?.map((item) => (
-              <div key={item._uid} className="flex items-center md:p-0 my-1">
+              <div key={item._uid} className="flex items-center md:p-0 ">
                 {item.component === 'link' ? (
                   <Link
                     href={`/${item.link.cached_url}`}
@@ -35,7 +34,7 @@ export default function Header({ blok }) {
             ))}
           </div>
 
-          <div className="flex-grow flex justify-left ml-5 items-center md:min-w-[50%] ">
+          <div className="flex-grow flex justify-left md:ml-5 items-center md:min-w-[50%] border border-black rounded-md md:border-none ">
             <SearchBar />
           </div>
         </div>

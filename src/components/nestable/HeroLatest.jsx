@@ -24,7 +24,7 @@ export default function HeroLatest({ blok }) {
         </div>
         <div
           id="hero-image-wrapper"
-          className=" relative w-full lg:max-w-screen-xxl mx-auto rounded-lg  overflow-hidden h-[300px] lg:h-[800px] lg:w-full"
+          className="relative w-full lg:max-w-screen-xxl mx-auto rounded-lg overflow-hidden h-[300px] lg:h-[800px] lg:w-full"
         >
           <LatestProducts latest_products={blok.latest_products[0].products} />
         </div>
