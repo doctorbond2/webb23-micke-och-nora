@@ -91,4 +91,34 @@ export class StoryblokCMS {
       console.log('PATHS ERROR', error);
     }
   }
+  static async searchForProducts(searchTerm) {
+    try {
+      const filterQuery = {
+        component: { in: 'product_page' },
+        name: { like: `%${searchTerm}%` },
+      };
+      const secondFilterQuery = {
+        component: { in: 'product_page' },
+      };
+      const { data } = await this.sbGet('cdn/stories/', {
+        starts_with: `products/`,
+        version: this.VERSION,
+        filter_query: filterQuery,
+      });
+      console.log(data.stories);
+      if (data.stories.length === 0) {
+        const searchTwo = await this.sbGet('cdn/stories/', {
+          starts_with: `products/${searchTerm}/`,
+          version: this.VERSION,
+          filter_query: secondFilterQuery,
+        });
+        console.log(searchTwo.data.stories);
+        return searchTwo.data.stories;
+      }
+
+      return data.stories;
+    } catch (error) {
+      console.error('Error searching for products:', error);
+    }
+  }
 }

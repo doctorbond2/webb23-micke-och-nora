@@ -2,13 +2,12 @@ import { colourBoxStyle } from '@/utils/customStylings';
 
 export default function ColourList({ colours }) {
   return (
-    <div id="colour-list-container" className="">
+    <div id="colour-list-container" className="mt-4">
       <h2
         style={{
           color: 'gray',
-          fontWeight: 'bold',
-          fontFamily: 'sans-serif',
         }}
+        className="mb-2"
       >
         Colour
       </h2>
