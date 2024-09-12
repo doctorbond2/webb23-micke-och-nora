@@ -1,13 +1,32 @@
+"use client";
+
 import Link from "next/link";
 import DropDownMenue from "./DropDownMenue";
 import SearchBar from "../client/SearchBar";
 import { FaShoppingBag } from "react-icons/fa";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Header({ blok }) {
+  const [isProductPage, setIsProductPage] = useState(false);
   const headerBlok = blok?.find((blok) => blok.component === "header");
+  const path = usePathname();
+
+  const regex = /^\/products\/[^\/]+\/[^\/]+$/;
+
+  // Använd useEffect för att uppdatera isProductPage när path ändras
+  useEffect(() => {
+    setIsProductPage(regex.test(path));
+  }, [path]);
+
+  console.log("path", path, "isProductPage", isProductPage);
 
   return (
-    <header className="border text-black bg-white pt-1 border-b-slate-800 md:h-20 h-52">
+    <header
+      className={`border ${
+        isProductPage ? "bg-black text-white" : "bg-white text-black"
+      } pt-1 border-b-slate-800 md:h-20 h-52`}
+    >
       <nav className="flex items-center md:justify-between justify-around md:px-5 py-3">
         <div className="flex flex-row flex-wrap md:flex-nowrap lg:flex-nowrap w-[60%] md:pl-[10%] pl-10">
           <div className="flex flex-col md:flex-row md:items-center md:space-x-10">
@@ -24,7 +43,9 @@ export default function Header({ blok }) {
                 {item.component === "link" ? (
                   <Link
                     href={`/${item.link.cached_url}`}
-                    className="border-b-2 border-transparent hover:border-black transition duration-300 ease-in-out"
+                    className={`border-b-2 border-transparent hover:${
+                      isProductPage ? "border-white" : "border-black"
+                    } transition duration-300 ease-in-out`}
                   >
                     <h2 className="text-[1.2rem]">{item.label}</h2>
                   </Link>
