@@ -1,6 +1,12 @@
 import StoryblokStory from "@storyblok/react/story";
 import { notFound } from "next/navigation";
 import { StoryblokCMS } from "@/utils/cms";
+import { storyblokInit, apiPlugin } from '@storyblok/react';
+
+storyblokInit({
+  accessToken: StoryblokCMS.TOKEN,
+  use: [apiPlugin],
+});
 
 //Generates static paths for all stories
 //Nextjs will generate a static page for each story
