@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image"
 import DropDownMenue from "./DropDownMenue";
 import SearchBar from "../client/SearchBar";
-import { FaShoppingBag } from "react-icons/fa";
+// import { FaShoppingBag } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -56,13 +57,13 @@ export default function Header({ blok }) {
             ))}
           </div>
 
-          <div className="flex-grow flex justify-left md:ml-5 items-center md:min-w-[50%] border border-black rounded-md md:border-none ">
+          <div className="flex-grow flex justify-left md:ml-5 items-center md:min-w-[50%] border border-black rounded-md md:border-none text-black ">
             <SearchBar />
           </div>
         </div>
 
         <div className="flex items-center flex-shrink-0 md:pr-[10%]">
-          <FaShoppingBag className="text-3xl" />
+          <Image src={headerBlok.icon_cart.filename} width={30} height={30} alt="blok icon" />
           <p className="text-[1.32rem] pl-[15%] translate-y-[5%]">3</p>
         </div>
       </nav>

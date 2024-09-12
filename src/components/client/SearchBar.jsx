@@ -68,7 +68,8 @@ export default function SearchBar() {
         />
       </div>
       {state.searchResults.length > 0 ? (
-        <div className="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-48 overflow-y-auto shadow-lg hidden group-focus-within:block" >
+        <div className="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-48 overflow-y-auto shadow-lg hidden group-hover:block" >
+      
           {state.searchResults.map((result, index) => (
             <SearchBarResult
               key={index}
