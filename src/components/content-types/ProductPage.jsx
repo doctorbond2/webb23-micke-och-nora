@@ -8,7 +8,7 @@ export default function ProductPage({ blok }) {
 
   return (
     <section
-      className="flex flex-col items-center p-4 md:h-[100vh] md:pt-20"
+      className="flex flex-col items-center p-4 md:pt-20"
       id="product-details"
     >
       <br></br>

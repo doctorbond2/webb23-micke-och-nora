@@ -45,8 +45,11 @@ export default function SearchBar() {
   const clearSearch = () => {
     dispatch({ type: action.CLEAR_SEARCH });
   };
+
   return (
-    <div className="relative">
+    <div className="relative group"
+    // onMouseEnter={}
+    >
       <div
         id="search-input-field"
         className="relative flex items-center w-[100%]"
@@ -65,7 +68,7 @@ export default function SearchBar() {
         />
       </div>
       {state.searchResults.length > 0 ? (
-        <div className="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-48 overflow-y-auto shadow-lg">
+        <div className="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-48 overflow-y-auto shadow-lg hidden group-focus-within:block" >
           {state.searchResults.map((result, index) => (
             <SearchBarResult
               key={index}
@@ -76,7 +79,7 @@ export default function SearchBar() {
         </div>
       ) : (
         state.searchInput.length > 2 && (
-          <div className="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-48 overflow-y-auto shadow-lg">
+          <div className="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-48 overflow-y-auto shadow-lg hidden group-focus-within:block">
             <div className="px-4 py-2 border-b last:border-none cursor-pointer hover:bg-gray-100 flex items-center justify-between">
               {state.isFetching || state.isLoading ? (
                 <h2>Looking...</h2>
