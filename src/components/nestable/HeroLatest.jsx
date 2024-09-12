@@ -9,7 +9,7 @@ export default function HeroLatest({ blok }) {
       <div
         className="mx-auto flex flex-col"
         style={{
-          backgroundColor: blok.background_color,
+          backgroundColor: blok.background_color || "#F5F5F5",
         }}
       >
         <div className="text-center mt-14">

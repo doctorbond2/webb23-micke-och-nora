@@ -4,10 +4,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Hero({ blok }) {
-  console.log('Hero', blok);
   return (
     <section {...storyblokEditable(blok)}>
-      <div
+      <div 
         className="mx-auto flex flex-col"
         style={{
           backgroundColor: blok.background_color,
@@ -25,7 +24,7 @@ export default function Hero({ blok }) {
         </div>
         <div
           id="hero-image-wrapper"
-          className=" relative w-full lg:max-w-screen-xxl mx-auto rounded-lg  overflow-hidden h-[300px] lg:h-[800px] lg:w-full"
+          className=" relative w-full max-w-[90%] mx-auto rounded-lg  overflow-hidden h-[300px] lg:h-[800px] lg:w-full"
         >
           {blok.image.filename && (
             <Image

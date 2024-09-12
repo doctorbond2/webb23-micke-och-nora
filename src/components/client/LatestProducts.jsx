@@ -43,15 +43,7 @@ export default function LatestProducts({ latest_products }) {
                   id="hero-image-wrapper"
                   className="relative w-full border-slate-600 overflow-hidden h-[300px] lg:h-[700px]"
                 >
-                  <div className="absolute inset-0 flex flex-col justify-between p-4">
-                    <h3
-                      className={`text-lg font-semibold z-20 ${
-                        index === 1 ? 'lg:translate-y-10' : ''
-                      }`}
-                    >
-                      {toUp(name)}
-                    </h3>
-                  </div>
+                 
                   <Image
                     src={filename}
                     alt={description || `Image of ${name}`}
