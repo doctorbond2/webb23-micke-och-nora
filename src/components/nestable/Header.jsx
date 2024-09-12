@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image"
+import Image from "next/image";
 import DropDownMenue from "./DropDownMenue";
 import SearchBar from "../client/SearchBar";
-// import { FaShoppingBag } from "react-icons/fa";
+
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -15,7 +15,6 @@ export default function Header({ blok }) {
 
   const regex = /^\/products\/[^\/]+\/[^\/]+$/;
 
-  // Använd useEffect för att uppdatera isProductPage när path ändras
   useEffect(() => {
     setIsProductPage(regex.test(path));
   }, [path]);
@@ -63,7 +62,13 @@ export default function Header({ blok }) {
         </div>
 
         <div className="flex items-center flex-shrink-0 md:pr-[10%]">
-          <Image src={headerBlok.icon_cart.filename} width={30} height={30} alt="blok icon" />
+          <Image
+            className={isProductPage ? "invert" : "icon-cart"}
+            src={headerBlok.icon_cart.filename}
+            width={30}
+            height={30}
+            alt="blok icon"
+          />
           <p className="text-[1.32rem] pl-[15%] translate-y-[5%]">3</p>
         </div>
       </nav>
