@@ -1,9 +1,10 @@
-import Link from 'next/link';
-import DropDownMenue from './DropDownMenue';
-import SearchBar from '../client/SearchBar';
+import Link from "next/link";
+import DropDownMenue from "./DropDownMenue";
+import SearchBar from "../client/SearchBar";
+import { FaShoppingBag } from "react-icons/fa";
 
 export default function Header({ blok }) {
-  const headerBlok = blok?.find((blok) => blok.component === 'header');
+  const headerBlok = blok?.find((blok) => blok.component === "header");
 
   return (
     <header className="border text-black bg-white pt-1 border-b-slate-800 md:h-20 h-52">
@@ -20,14 +21,14 @@ export default function Header({ blok }) {
 
             {headerBlok?.nav?.map((item) => (
               <div key={item._uid} className="flex items-center md:p-0 ">
-                {item.component === 'link' ? (
+                {item.component === "link" ? (
                   <Link
                     href={`/${item.link.cached_url}`}
                     className="border-b-2 border-transparent hover:border-black transition duration-300 ease-in-out"
                   >
                     <h2 className="text-[1.2rem]">{item.label}</h2>
                   </Link>
-                ) : item.component === 'link_group' ? (
+                ) : item.component === "link_group" ? (
                   <DropDownMenue blok={item} />
                 ) : null}
               </div>
@@ -39,8 +40,9 @@ export default function Header({ blok }) {
           </div>
         </div>
 
-        <div className="flex items-center flex-shrink-0">
-          <h2 className="text-[1.32rem]">3</h2>
+        <div className="flex items-center flex-shrink-0 md:pr-[10%]">
+          <FaShoppingBag className="text-3xl" />
+          <p className="text-[1.32rem] pl-[15%] translate-y-[5%]">3</p>
         </div>
       </nav>
     </header>
