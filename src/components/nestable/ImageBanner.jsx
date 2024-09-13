@@ -2,7 +2,6 @@ import Image from 'next/image';
 
 export default function ImageBanner({ blok }) {
   const { filename } = blok.image;
-  console.log(blok);
   return (
     <div className="relative w-full md:h-[70vh] lg:inline-block hidden">
       {filename ? (

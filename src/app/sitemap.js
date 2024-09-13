@@ -2,7 +2,7 @@ import { StoryblokCMS as cms } from "@/utils/cms";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
 storyblokInit({
-    accessToken: process.env.NEXT_PUBLIC_PRODUCTION_STORYBLOK_TOKEN,
+    accessToken: cms.TOKEN,
     use: [apiPlugin],
 });
 
@@ -15,10 +15,10 @@ export default async function sitemap() {
         const sitemap = pages.map((page) => {
             const slug = page?.slug.filter((item) => item !== "")
             let finalSlug = slug?.length > 0 ? slug.join("/") : slug
-            const url = `${process.env.SITE_URL}/${finalSlug ?? ""}`
+            const url = `${process.env.NEXT_PUBLIC_SITE_URL}/${finalSlug ?? ""}`
             return {
                 url: url,
-                lastModiefied: new Date(),
+                lastModified: new Date(),
                 priority: 1,
             }
         })

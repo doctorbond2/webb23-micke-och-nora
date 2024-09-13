@@ -6,6 +6,6 @@ export default function Robots() {
           allow: '/',
           disallow: '/private/',
         },
-        sitemap: `${process.env.SITE_URL}/sitemap.js`,
+        sitemap: `${process.env.NEXT_PUBLIC_SITE_URL}/sitemap.js`,
       }
 }

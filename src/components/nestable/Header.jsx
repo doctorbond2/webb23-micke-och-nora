@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import DropDownMenue from "./DropDownMenue";
 import SearchBar from "../client/SearchBar";
-
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
