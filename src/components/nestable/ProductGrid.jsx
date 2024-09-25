@@ -1,9 +1,9 @@
-"use client";
-import { StoryblokCMS } from "@/utils/cms";
-import Link from "next/link";
-import ImageWithText from "./ImageWithText";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+'use client';
+import { StoryblokCMS } from '@/utils/cms';
+import Link from 'next/link';
+import ImageWithText from './ImageWithText';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function ProductGrid({ blok }) {
   const [products, setProducts] = useState([]);
@@ -15,7 +15,7 @@ export default function ProductGrid({ blok }) {
         const prod = await StoryblokCMS.getProducts();
         setProducts(prod);
       } catch (e) {
-        console.log("e", e);
+        console.log('e', e);
       }
     };
     fetchProducts();
@@ -29,10 +29,10 @@ export default function ProductGrid({ blok }) {
     <section className="w-full bg-gray-50 py-8">
       <div className="flex justify-center space-x-4 mb-8 flex-wrap">
         {blok?.filter_options?.map((option) => {
-          const normalizedPath = path.replace(/\/$/, "");
+          const normalizedPath = path.replace(/\/$/, '');
           const normalizedCachedUrl = `/${option.link?.cached_url.replace(
             /\/$/,
-            ""
+            ''
           )}`;
           const isActive = normalizedPath === normalizedCachedUrl;
 
@@ -41,8 +41,8 @@ export default function ProductGrid({ blok }) {
               <button
                 className={`px-4 py-2 mb-4 border ${
                   isActive
-                    ? "bg-black text-white border-black"
-                    : "bg-white text-black border border-black"
+                    ? 'bg-black text-white border-black'
+                    : 'bg-white text-black border border-black'
                 } hover:bg-black hover:text-white transition-colors duration-200`}
               >
                 {option.label}
