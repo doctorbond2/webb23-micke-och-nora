@@ -4,9 +4,7 @@ import { sizeBoxStyle } from '@/utils/customStylings';
 
 export default function SizeList({ sizes }) {
   const allSizes = ['xs', 's', 'm', 'l', 'xl', 'xxl', '3xl'];
-  useEffect(() => {
-    if (sizes) console.log('sizes', sizes);
-  }, [sizes]);
+
   return (
     <div id="sizes-list" className="flex-col mt-4">
       <h2 style={{ color: 'gray' }} className="mb-2">
